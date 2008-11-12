@@ -6,16 +6,17 @@ class NewsExtension < Radiant::Extension
   description "Extension for news administration in backend and different frontend views"
   url "http://www.screenconcept.ch"
   
-  # define_routes do |map|
-  #   map.connect 'admin/news/:action', :controller => 'admin/news'
-  # end
+  define_routes do |map|
+    map.connect 'admin/news/:action', :controller => 'admin/news'
+  end
   
   def activate
-    # admin.tabs.add "News", "/admin/news", :after => "Layouts", :visibility => [:all]
+    admin.tabs.add "News", "/admin/news", :after => "Layouts", :visibility => [:all]
+    Page.send :include,  NewsTags
   end
   
   def deactivate
-    # admin.tabs.remove "News"
+    admin.tabs.remove "News"
   end
   
 end

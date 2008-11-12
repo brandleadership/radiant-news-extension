@@ -1,0 +1,17 @@
+<h1>News</h1>
+<% if @news.blank? %>
+  <p>No books in Database </p> 
+<% else %>
+<u1>
+    <table  class="index" >
+       <% @news.each do |news| %>
+         <tr  class="node level-0">
+           <td class="page"><%= link_to  news.headline, { :action => 'edit', :id => news.id } %></td>
+           <td class="page"><%= link_to  'delete', { :action => 'remove', :id => news.id } %></td>
+         </tr>
+      <%end%>
+    </table>
+</u1>
+<%- end %>
+
+<%= link_to 'Add new news', { :action => 'new' } %>

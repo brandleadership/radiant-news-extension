@@ -1,0 +1,13 @@
+<%= error_messages_for :newsNew %>
+<% form_for :newsNew, @news, :url => { :action => doAction, :id => params[:id]} do |form|%>
+    <%= form.label :headline %>
+    <%= form.text_field :headline %>
+  <br/>
+    <%= form.label :leadtext %>
+    <%= form.text_field :leadtext %>
+  <br/>
+    <%= form.label :text %>
+    <%= form.text_field :text %>
+  <br/>
+    <%= form.submit submitText %>
+<%end%>
