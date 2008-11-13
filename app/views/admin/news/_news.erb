@@ -1,13 +1,23 @@
 <%= error_messages_for :newsNew %>
-<% form_for :newsNew, @news, :url => { :action => doAction, :id => params[:id]} do |form|%>
-    <%= form.label :headline %>
-    <%= form.text_field :headline %>
-  <br/>
-    <%= form.label :leadtext %>
-    <%= form.text_field :leadtext %>
-  <br/>
-    <%= form.label :text %>
-    <%= form.text_field :text %>
-  <br/>
-    <%= form.submit submitText %>
+<div id='main'>
+  <div id='content'>
+    <h1><%= pagetitle %></h1>
+    <div class='form-area'>
+      <% form_for :newsNew, @news, :url => { :action => doAction, :id => params[:id]} do |form|%>
+      <p class='title'>
+        <%= form.label :headline %>
+        <%= form.text_field :headline, :class => 'textbox'%>
+      </p>
+      <p class='title'>
+        <%= form.label :leadtext %>
+        <%= form.text_field :leadtext, :class => 'textbox' %>
+      </p>
+      <p class='title'>
+        <%= form.label :text %>
+        <%= form.text_area(:text, :cols => 60, :rows => 2, :class => "textarea") %>
+      </p>
+      <%= form.submit submitText, :class => "button"%>
+    </div>
+  </div>
+</div>
 <%end%>
