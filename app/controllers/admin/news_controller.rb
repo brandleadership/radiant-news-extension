@@ -9,7 +9,8 @@ class Admin::NewsController < ApplicationController
   end
 
   def create
-    @newsNew = News.new(params[:newsNew])
+    @newsNew = News.new(params[:news])
+    
     if @newsNew.save
       redirect_to :action => 'index'
     else
@@ -22,8 +23,9 @@ class Admin::NewsController < ApplicationController
   end
 
   def update
-    @newsNew  = News.find(params[:id])
-    if @newsNew.update_attributes(params[:navigationTypeNew])
+    @news  = News.find(params[:id])
+
+    if @news.update_attributes(params[:news])
       redirect_to :action => 'index'
     else
       render :action => 'edit'
