@@ -5,7 +5,7 @@ module NewsTags
     Gets scrolltext with active news.
 
     *Usage:*
-    <r:news_marquee [behavior="scroll"] [direction="left"] [loop="true"] [scrollamount="1"] [scrolldelay="2"]>
+    <r:news_marquee [behavior="scroll"] [direction="left"] [loop="true"] [scrollamount="1"] [scrolldelay="2"] />
   }
   tag 'news_marquee' do |tag|
     html = ''
