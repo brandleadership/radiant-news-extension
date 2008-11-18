@@ -8,7 +8,7 @@ Requirements
 For this extension rails plugin calendar data select plugin is required. Further informations are you find here: http://code.google.com/p/calendardateselect/ .
 
 
-INSTALLATION
+== INSTALLATION
 
 1)Install the News Extension
 
@@ -21,22 +21,22 @@ rake production radiant:extensions:news:migrate
 3) Start (or restart) your server
 
 
-USAGE
+== USAGE
 
 Radius Tags
-<r:news_current>: Returns all current news
-<r:news_headline >: Returns headline
-<r:news_leadtext >: Returns leadtext
-<r:news_text >: Returns text
-<r:news_marquee [behavior="scroll"] [direction="left"] [loop="true"] [scrollamount="1"] [scrolldelay="2"] > : Returns a <marquee>-Tag with all current news and leadtexts.
+<r:news:current>: Returns all current news
+<r:news:headline >: Returns headline
+<r:news:leadtext >: Returns leadtext
+<r:news:text >: Returns text
+<r:news:marquee [behavior="scroll"] [direction="left"] [loop="true"] [scrollamount="1"] [scrolldelay="2"] > : Returns a <marquee>-Tag with all current news and leadtexts.
 
 Example:
-<r:news_current>
-  <r:news_headline /><br />
-  <r:news_leadtext /><br />
-  <r:news_text />
-</r:news_current>
+<r:news:current>
+  <r:news:headline /><br />
+  <r:news:leadtext /><br />
+  <r:news:text />
+</r:news:current>
 
 
-TODO
+== TODO
 - Frontend tests

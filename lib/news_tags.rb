@@ -5,9 +5,9 @@ module NewsTags
     Gets scrolltext with active news.
 
     *Usage:*
-    <r:news_marquee [behavior="scroll"] [direction="left"] [loop="true"] [scrollamount="1"] [scrolldelay="2"] />
+    <r:news:marquee [behavior="scroll"] [direction="left"] [loop="true"] [scrollamount="1"] [scrolldelay="2"] />
   }
-  tag 'news_marquee' do |tag|
+  tag 'newsMarquee' do |tag|
     html = ''
     currentnews.each do |news|
       html += '<b>' + news.headline+'</b>: ' + news.leadtext + " "
@@ -21,10 +21,14 @@ module NewsTags
       :scrolldelay  => tag.attr['scrolldelay'])
   end
 
+  tag 'news' do |tag|
+    tag.expand
+  end
+
   desc %{
     Allow to iterate over news which are active today.
   }
-  tag 'news_current' do |tag|
+  tag 'news:current' do |tag|
     result = []
     currentnews.each do |news|
       tag.locals.news = news
@@ -36,21 +40,21 @@ module NewsTags
   desc %{
     Returns headline of current news
   }
-  tag 'news_headline' do |tag|
+  tag 'news:headline' do |tag|
     tag.locals.news.headline
   end
 
   desc %{
     Returns leadtext of current news
   }
-  tag 'news_leadtext' do |tag|
+  tag 'news:leadtext' do |tag|
     tag.locals.news.leadtext
   end
 
   desc %{
     Returns text of current news
   }
-  tag 'news_text' do |tag|
+  tag 'news:text' do |tag|
     tag.locals.news.text
   end
 
