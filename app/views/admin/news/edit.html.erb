@@ -1,1 +1,43 @@
-<%= render :partial => 'admin/news/news',  :locals => { :doAction => 'update', :submitText => 'Update',  :pagetitle =>"Edit News" } %>
+<%= calendar_date_select_includes %>
+<% include_stylesheet 'admin/news/news' %>
+<% if @news.new_record? %>
+  <h1>New News</h1>
+<% else %>
+  <h1>Edit: <%= @news.headline %></h1>
+<% end %>
+
+<div id='main'>
+  <div id='content'>
+    <div class='form-area'>
+      <% form_for :news, @news do |form|%>
+        <p class='title'>
+          <%= form.label :headline %>
+          <%= form.text_field :headline, :class => 'textbox', :maxlength => 255 %>
+        </p>
+        <p class='label'>
+          <%= form.label :leadtext %>
+          <%= form.text_field :leadtext, :class => 'textbox', :maxlength => 255 %>
+        </p>
+        <p class='label'>
+          <%= form.label :text %>
+          <%= form.text_area(:text, :cols => 60, :rows => 2, :class => "textarea") %>
+        </p>
+        <p class='label'>
+          <%= form.label :start %>
+          <%= calendar_date_select :news, :start %>
+        </p>
+        <p class='label'>
+          <%= form.label :stop %>
+          <%= calendar_date_select :news, :stop %>
+        </p>
+        <br />
+        <p class="buttons">
+          <%= save_model_button(@news) %>
+          <%= save_model_and_continue_editing_button(@news) %>
+          or
+          <%= link_to "Cancel", {:action => :index} %>
+        </p>
+    </div>
+  </div>
+</div>
+<%end%>

@@ -1,0 +1,78 @@
+#content .form-area p {
+  margin-bottom:0;
+  margin-top:0;
+  padding-bottom:20px;
+  padding-top:0;
+}
+
+#content table.index .node .link {
+  font-size:115%;
+  font-weight:bold;
+}
+
+#content table.index .node .link a,
+#content table.index .node .link a:visited {
+  color:black;
+  text-decoration:none;
+}
+
+#content .form-area #link_url.textbox,
+#content .form-area #link_description.textbox {
+  font-size:150%;
+  height:200px;
+  width:100%;
+}
+
+#content .form-area .title .textbox {
+  font-family:Georgia,Palatino,"Times New Roman",Times,serif;
+  font-size:200%;
+  width:100%;
+}
+
+#content #link_form_area{
+  width:500px;
+}
+
+#content #link_form_area .row {
+  clear:both;
+  height:1em;
+  margin:1em 0;
+  width:100%;
+}
+
+#content .form-area .url,
+#content .form-area .description {
+  margin-bottom:1em;
+  margin-top:1em;
+}
+
+#content .index tr.inactive td.link a,
+#content .index tr.inactive td.link a:visited{
+  font-style: italic;
+  text-decoration: line-through;
+}
+
+#content .form-area .label .textbox {
+  margin-bottom:0;
+  margin-top:0;
+}
+
+#content .form-area .label .textbox {
+  font-family: Georgia,Palatino,"Times New Roman",Times,serif;
+  font-size: 100%;
+  width: 100%;
+}
+
+#content .form-area .label .textarea {
+  font-family: Georgia,Palatino,"Times New Roman",Times,serif;
+}
+
+#content .form-area .label label {
+  display: block;
+  position: relative;
+}
+
+#content .form-area .title label {
+  display: block;
+  position: relative;
+}

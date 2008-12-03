@@ -7,7 +7,12 @@ class NewsExtension < Radiant::Extension
   url "http://www.screenconcept.ch"
   
   define_routes do |map|
-    map.connect 'admin/news/:action', :controller => 'admin/news'
+    map.with_options(:controller => 'admin/news') do |link |
+      link.news_index           'admin/news',             :action => 'index'
+      link.news_new             'admin/news/new',         :action => 'new'
+      link.news_edit            'admin/news/edit/:id',    :action => 'edit'
+      link.news_remove          'admin/news/remove/:id',  :action => 'remove'
+    end
   end
   
   def activate

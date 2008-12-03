@@ -1,6 +1,6 @@
 = News
 
-Created by Pascal Naef (ScreenConcept), November 2008
+Created by Pascal Naef (ScreenConcept), December 2008
 
 With this news extension you can enter news with headline, leadtext and text in backend. A news will be only displayed if start is greater or equal current date and stop is less or equal current date.
 
@@ -14,9 +14,10 @@ For this extension rails plugin calendar data select plugin is required. Further
 
 git clone git://github.com/screenconcept/radiant-news-extension.git vendor/extensions/news
 
-2) run migration
+2) run migration and update
 
 rake production radiant:extensions:news:migrate
+rake radiant:extensions:news:update
 
 3) Start (or restart) your server
 
