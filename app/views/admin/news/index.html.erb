@@ -7,7 +7,7 @@
        <% @news.each do |news| %>
          <tr  class="node level-0">
            <td class="page"><%= link_to  news.headline, { :action => 'edit', :id => news.id } %></td>
-           <td class="remove"><%= link_to image('remove', :alt => 'Remove News'), layout_remove_url(:id => news.id) %></td>
+           <td class="remove"><%= link_to image('remove', :alt => 'Remove News'), news_remove_url(:id => news.id) %></td>
          </tr>
       <%end%>
     </table>
