@@ -1,4 +1,4 @@
-class CreateNews < ActiveRecord::Migration
+class ChangeNewsFieldTyp < ActiveRecord::Migration
   def self.up
     change_column :news, :text, :text
   end
