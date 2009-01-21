@@ -1,9 +1,9 @@
-class CreateNews < ActiveRecord::Migration
+class CreateNewsEntry < ActiveRecord::Migration
   def self.up
-    create_table :news do |t|
+    create_table :news_entries do |t|
       t.string :headline
       t.string :leadtext
-      t.string :text
+      t.text :text
       t.date :start
       t.date :stop
 

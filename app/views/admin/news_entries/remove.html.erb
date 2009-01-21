@@ -6,16 +6,16 @@
   <tbody>
     <tr class="node level-1">
       <td class="news">
-           <%= @news.headline %>
+           <%= @news_entry.headline %>
       </td>
     </tr>
   </tbody>
 </table>
 
-<% form_tag do %>
+<% form_for [:admin, @news_entry], :html => { :method => 'delete' } do %>
   <p class="buttons">
     <input class="button" type="submit" value="Delete News"/>
     or
-    <%= link_to 'Cancel', news_index_url %>
+    <%= link_to 'Cancel', admin_news_entry_url %>
   </p>
 <%- end -%>

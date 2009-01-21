@@ -2,7 +2,7 @@ require File.dirname(__FILE__) + '/../spec_helper'
 
 describe 'empthy news should not be saved' do
   before(:each) do
-    @news = News.new
+    @news = NewsEntry.new
   end
 
   it "should not be saved" do
@@ -12,7 +12,7 @@ end
 
 describe 'saving a new with all mendatory attributes' do
   before(:each) do
-    @news = News.new(:headline => 'test', :leadtext => 'test', :start => Date::today())
+    @news = NewsEntry.new(:headline => 'test', :leadtext => 'test', :start => Date::today())
   end
 
   it "should be saved" do
@@ -22,7 +22,7 @@ end
 
 describe 'saving a news with just headline should not be possible' do
   before(:each) do
-    @news = News.new(:headline => 'test')
+    @news = NewsEntry.new(:headline => 'test')
   end
 
   it "should not be saved" do

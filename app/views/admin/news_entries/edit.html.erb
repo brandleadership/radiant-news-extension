@@ -1,15 +1,11 @@
 <%= calendar_date_select_includes %>
 <% include_stylesheet 'admin/news/news' %>
-<% if @news.new_record? %>
-  <h1>New News</h1>
-<% else %>
-  <h1>Edit: <%= @news.headline %></h1>
-<% end %>
+<h1>Edit: <%= @news_entry.headline %></h1>
 
 <div id='main'>
   <div id='content'>
     <div class='form-area'>
-      <% form_for :news, @news do |form|%>
+      <% form_for [:admin, @news_entry] do |form|%>
         <p class='title'>
           <%= form.label :headline %>
           <%= form.text_field :headline, :class => 'textbox', :maxlength => 255 %>
@@ -24,16 +20,16 @@
         </p>
         <p class='label'>
           <%= form.label :start %>
-          <%= calendar_date_select :news, :start %>
+          <%= calendar_date_select :news_entry, :start %>
         </p>
         <p class='label'>
           <%= form.label :stop %>
-          <%= calendar_date_select :news, :stop %>
+          <%= calendar_date_select :news_entry, :stop %>
         </p>
         <br />
         <p class="buttons">
-          <%= save_model_button(@news) %>
-          <%= save_model_and_continue_editing_button(@news) %>
+          <%= save_model_button(@news_entry) %>
+          <%= save_model_and_continue_editing_button(@news_entry) %>
           or
           <%= link_to "Cancel", {:action => :index} %>
         </p>
