@@ -60,6 +60,7 @@ module NewsTags
 
 
   def currentnews
-     News.find(:all, :conditions => 'start <= CURDATE() and (stop is null or stop >= CURDATE())')
+    curr_date = Time.now
+    NewsEntry.find(:all, :conditions => ['start <=  ? and (stop is null or stop >= ?)', curr_date, curr_date])
   end
 end
