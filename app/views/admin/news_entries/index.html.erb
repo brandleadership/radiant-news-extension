@@ -1,4 +1,7 @@
+<%= render :partial => "#{File.dirname(__FILE__)}/../menu.html.erb"%>
+<%# render :partial => "menu" %>
 <h1>News</h1>
+
 <% if @news_entries.blank? %>
   <p>No news in database </p>
 <% else %>
@@ -12,6 +15,9 @@
       <%end%>
     </table>
 </u1>
+<div id="pagination" style='margin: 10px'>
+<%= will_paginate @news_entries %>
+</div>
 <%- end %>
 
 <%#= ActionController::Base.instance_methods.sort.join("\n") %>

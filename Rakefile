@@ -22,6 +22,7 @@ require 'rake/rdoctask'
 require 'rake/testtask'
 
 rspec_base = File.expand_path(RADIANT_ROOT + '/vendor/plugins/rspec/lib')
+puts rspec_base
 $LOAD_PATH.unshift(rspec_base) if File.exist?(rspec_base)
 require 'spec/rake/spectask'
 # require 'spec/translator'
@@ -48,6 +49,19 @@ namespace :spec do
     t.rcov = true
     t.rcov_opts = ['--exclude', 'spec', '--rails']
   end
+  
+  desc "Run spec library"
+  Spec::Rake::SpecTask.new(:lib) do |t|
+    t.spec_opts = ['--options', "\"#{extension_root}/spec/spec.opts\""]
+    t.spec_files = FileList['spec/lib/*_spec.rb']
+  end
+  
+  desc "Run spec model"
+  Spec::Rake::SpecTask.new(:models) do |t|
+    t.spec_opts = ['--options', "\"#{extension_root}/spec/spec.opts\""]
+    t.spec_files = FileList['spec/models/*_spec.rb']
+  end
+  
   
   desc "Print Specdoc for all specs"
   Spec::Rake::SpecTask.new(:doc) do |t|

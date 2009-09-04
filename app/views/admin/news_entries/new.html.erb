@@ -19,6 +19,19 @@
           <%= form.text_area(:text, :cols => 60, :rows => 2, :class => "textarea") %>
         </p>
         <p class='label'>
+          <%= form.label "Tags (separated by comma)" %> 
+          <%= form.text_field "news_tags", :class => 'textbox', :maxlength => 255 %>
+        </p>
+        <p class='label'>
+		  <% if @news_categories%>
+          <%= form.label "Categories" %>
+          <% for category in @news_categories %>
+			  <%= check_box_tag "news_entry[news_category_ids][]", category.id, @news_entry.news_categories.include?(category) %>
+			  <%= category.name %>
+			<% end %>
+		  <% end %>
+        </p>
+        <p class='label'>
           <%= form.label :start %>
           <%= calendar_date_select :news_entry, :start %>
         </p>
