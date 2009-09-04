@@ -1,6 +1,7 @@
 = News
 
-Created by Pascal Naef (ScreenConcept), December 2008
+Original Created by Pascal Naef (ScreenConcept), December 2008
+This version by Ahmy Yulrizka (ahmy), September 2009
 
 With this news extension you can enter news with headline, leadtext and text in backend. A news will be only displayed if start is greater or equal current date and stop is less or equal current date.
 
