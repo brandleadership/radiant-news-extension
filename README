@@ -15,7 +15,7 @@ for will_paginate, the easiest way is just using the gem and add 'require "will_
 == ENHANCEMENT
 * News can be grouped by category
 * News can be tagged
-* News can be filtered by category or tag
+* News can be filtered by category or tag also by id
 * Limit the news that show up
 * Added Date tag
 * 2 Page mechanism, (Front Page and Entry Page). Entry page display specific news
