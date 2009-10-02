@@ -12,6 +12,14 @@ For this extension you need a couple of plugin
 
 for will_paginate, the easiest way is just using the gem and add 'require "will_paginate"' on “config/environment.rb” as the above site show. 
 
+== ENHANCEMENT
+* News can be grouped by category
+* News can be tagged
+* News can be filtered by category or tag
+* Limit the news that show up
+* Added Date tag
+* 2 Page mechanism, (Front Page and Entry Page). Entry page display specific news
+
 
 == INSTALLATION
 
