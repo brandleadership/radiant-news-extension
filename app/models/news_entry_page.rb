@@ -1,0 +1,2 @@
+class NewsEntryPage < Page
+end

@@ -12,11 +12,11 @@
         </p>
         <p class='label'>
           <%= form.label :leadtext %>
-          <%= form.text_area(:leadtext, :cols => 100, :rows => 2, :class => "textarea") %>
+          <%= form.text_field :leadtext, :class => 'textbox', :maxlength => 255 %>
         </p>
         <p class='label'>
           <%= form.label :text %>
-          <%= form.text_area(:text, :cols => 100, :rows => 2, :class => "textarea") %>
+          <%= form.text_area(:text, :cols => 60, :rows => 2, :class => "textarea") %>
         </p>
 		<p class='label'>
           <%= form.label "Tags (separated by comma)" %> 

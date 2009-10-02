@@ -9,7 +9,7 @@
     <table  class="index" >
        <% @news_entries.each do |news| %>
          <tr  class="node level-0">
-           <td class="page"><%= link_to  "(#{news.id}) #{news.headline}", { :action => 'edit', :id => news.id } %></td>
+           <td class="page"><%= link_to  news.headline, { :action => 'edit', :id => news.id } %></td>
            <td class="remove"><%= link_to image('remove', :alt => 'Remove News'), remove_admin_news_entry_url(:id => news.id) %></td>
          </tr>
       <%end%>

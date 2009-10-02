@@ -1,0 +1,23 @@
+<%= calendar_date_select_includes %>
+<% include_stylesheet 'admin/news/news' %>
+<h1>Edit: <%= @news_category.name %></h1>
+
+<div id='main'>
+  <div id='content'>
+    <div class='form-area'>
+      <% form_for [:admin, @news_category] do |form|%>
+        <p class='title'>
+          <%= form.label :name %>
+          <%= form.text_field :name, :class => 'textbox', :maxlength => 255 %>
+        </p>
+        <br />
+        <p class="buttons">
+          <%= save_model_button(@news_category) %>
+          <%= save_model_and_continue_editing_button(@news_category) %>
+          or
+          <%= link_to "Cancel", {:action => :index} %>
+        </p>
+    </div>
+  </div>
+</div>
+<%end%>

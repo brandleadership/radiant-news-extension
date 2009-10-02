@@ -29,6 +29,27 @@ describe 'NewsTags' do
       pages(:home).should render(tag).as(expected)
     end
   end
+  
+  #test date
+  describe '<r:news:date>' do
+    before do
+      @first = NewsEntry.new(:headline => 'test 4', :leadtext => 'test 4', :start => Date::today())
+      @first.save      
+      @date = @first.start
+    end
+    it 'should render the current news' do
+      tag = %{<r:news:current><r:news:headline />
+<r:news:leadtext />
+<r:news:date />
+<r:news:text /></r:news:current>}
+      expected = %{test 4
+test 4
+#{@date}
+}
+      
+      pages(:home).should render(tag).as(expected)
+    end
+  end
 
   #test retrive all news
   describe '<r:news:current><r:news:headline /><r:news:leadtext /><r:news:text /></r:news:current>' do
@@ -193,6 +214,26 @@ test 3
     end
   end
   
+  #test id attribute  
+   describe '<r:news:current id="1"><r:news:headline /><r:news:leadtext /><r:news:text /></r:news:current>' do
+    before do
+      @first = NewsEntry.new(:headline => 'test 4', :leadtext => 'test 4', :start => Date::today())
+      @first.save
+      NewsEntry.new(:headline => 'test 1', :leadtext => 'test 1', :start => Date::today()).save
+      NewsEntry.new(:headline => 'test 2', :leadtext => 'test 2', :start => Date::today()).save
+    end
+    
+    it 'should render the specific news by \'id \'' do
+      tag = %{<r:news:current id="#{@first.id}"><r:news:headline />
+<r:news:leadtext />
+<r:news:text /></r:news:current>}
+            expected = %{test 4
+test 4
+}
+      pages(:home).should render(tag).as(expected)
+    end
+  end
+  
   #test all attribute  
    describe '<r:news:current category="Category 1" tag="Tag 1" offset="1" limit="1"><r:news:headline /><r:news:leadtext /><r:news:text /></r:news:current>' do
     before do
@@ -205,6 +246,27 @@ test 3
 <r:news:text /></r:news:current>}
             expected = %{test 2
 test 2
+}
+      pages(:home).should render(tag).as(expected)
+    end
+  end
+  
+   #test id attribute  
+   describe '<r:news:current id="1"><r:news:headline /><r:news:leadtext /><r:news:text /><r:news:link>link_title</r:news:link></r:news:current>' do
+    before do
+      @first = NewsEntry.new(:headline => 'test 4', :leadtext => 'test 4', :start => Date::today())
+      @first.save
+      NewsEntryPage.new(:title => 'test', :slug => "entry", :breadcrumb => "entry").save
+    end
+    
+    it 'should render the link to the news' do
+      tag = %{<r:news:current id="#{@first.id}"><r:news:headline />
+<r:news:leadtext />
+<r:news:link>link_title</r:news:link>
+</r:news:current>}
+            expected = %{test 4
+test 4
+<a href="/entry/?entry_id=#{@first.id}">link_title</a>
 }
       pages(:home).should render(tag).as(expected)
     end

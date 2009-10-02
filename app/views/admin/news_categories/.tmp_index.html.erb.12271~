@@ -20,4 +20,4 @@
 
 <%#= ActionController::Base.instance_methods.sort.join("\n") %>
 
-<%= link_to 'Add New Category', { :action => 'new' } %>
+<%= link_to 'Add New Tags', { :action => 'new' } %>
